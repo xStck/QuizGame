@@ -58,7 +58,7 @@ struct ContentView: View {
                 .opacity(0.3)
             
             Circle()
-                .trim(from: 0.0, to: min(CGFloat((Double(gameManagerViewModel.progress) * Double(gameManagerViewModel.maxProgress))/100),1.0))
+                .trim(from: 0.0, to: min((CGFloat(gameManagerViewModel.progress)/CGFloat(gameManagerViewModel.maxProgress))*100,1.0))
                 .stroke(LinearGradient(colors: [.orange, .red],
                                        startPoint: .topLeading,
                                        endPoint: .bottomTrailing),

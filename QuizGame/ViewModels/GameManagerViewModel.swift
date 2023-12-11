@@ -40,6 +40,7 @@ class GameManagerViewModel: ObservableObject{
                     }else{
                         self.model.quizCompleted = true
                         self.model.quizWinningStatus = true
+                        self.reset()
                     }
                 }
             }else{
@@ -52,6 +53,7 @@ class GameManagerViewModel: ObservableObject{
     func restartGame(){
         GameManagerViewModel.currentIndex = 0
         model = GameManagerViewModel.createGameModel(i: GameManagerViewModel.currentIndex)
+        self.start()
     }
     
     func start() {
