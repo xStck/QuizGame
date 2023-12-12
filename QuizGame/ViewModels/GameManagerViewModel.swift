@@ -334,27 +334,6 @@ static var quizData: [QuizModel] {
                                     QuizOption(id: 148,optionId: "C", option: "Swift", color: Color.green),
                                     QuizOption(id: 149,optionId: "D", option: "UIKit", color: Color.purple)]),
             
-            QuizModel(question: "Funkcja .flatMap() służy do spłaszczania zagnieżdżonych tablic do tablicy jednopoziomowej. Czy można ją wywołać na tablicy opcjonalnych wartości i jaki będzie wynik? (array.flatMap({ $0 }))",
-                      answer: "C",
-                      optionsList: [QuizOption(id: 150,optionId: "A", option: "Tak, wynik będzie identyczny z oryginalną tablicą, ponieważ jest to już tablica jednopoziomowa", color: Color.yellow),
-                                    QuizOption(id: 151,optionId: "B", option: "Nie, kompilator na to nie pozwoli, można to wywołać tylko na tablicach, które mają zagnieżdżone tablice", color: Color.red),
-                                    QuizOption(id: 152,optionId: "C", option: "Tak, spowoduje to utworzenie nowej tablicy z niezerowymi wartościami z oryginalnej tablicy", color: Color.green),
-                                    QuizOption(id: 153,optionId: "D", option: "Nie, kompilator pozwoli na to, ale spowoduje to błąd w czasie wykonywania", color: Color.purple)]),
-            
-            QuizModel(question: "Dlaczego SwiftUI nie pozwala mieć więcej niż 10 zagnieżdżonych widoków w innym widoku?",
-                      answer: "A",
-                      optionsList: [QuizOption(id: 154,optionId: "A", option: "To z powodu generics, nie można mieć zmiennego parametru typu generycznego. Zespół SwiftUI postanowił po prostu ograniczyć to do 10 inicjalizatorów z rosnącą liczbą parametrów", color: Color.yellow),
-                                    QuizOption(id: 155,optionId: "B", option: "Ponieważ wydajność będzie zbyt niska, a zespół SwiftUI postanowił zmusić nas do nie pisania powolnego kodu", color: Color.red),
-                                    QuizOption(id: 156,optionId: "C", option: "Wydajność w rzeczywistości byłaby zbyt dobra, a zespół SwiftUI nie chciał, abyśmy tworzyli tak świetne i szybkie aplikacje. Nie będzie wtedy sensu kupować nowych iPhone'ów", color: Color.green),
-                                    QuizOption(id: 157,optionId: "D", option: "Ograniczenie wynika z zaplanowanej struktury pamięciowej, która w obecnym modelu SwiftUI optymalizuje wydajność do 10 zagnieżdżonych widoków", color: Color.purple)]),
-            
-            QuizModel(question: "Podczas zwracania widoku SwiftUI zazwyczaj dodajemy słowo kluczowe some. Jakie byłyby konsekwencje braku takiego słowa kluczowego?",
-                      answer: "D",
-                      optionsList: [QuizOption(id: 158,optionId: "A", option: "Musielibyśmy określić dokładny typ zwracanego widoku", color: Color.yellow),
-                                    QuizOption(id: 159,optionId: "B", option: "Nieznaczna zmiana struktury widoku doprowadziłaby do innego typu widoku", color: Color.red),
-                                    QuizOption(id: 160,optionId: "C", option: "Musielibyśmy znać wszystkie typy dostarczane nam przez ViewBuilder, aby móc samodzielnie określić typ", color: Color.green),
-                                    QuizOption(id: 161,optionId: "D", option: "Wszystkie z powyższych", color: Color.purple)]),
-            
             QuizModel(question: "Który z poniższych elementów jest używany do tworzenia obiektu Mutable?",
                       answer: "B",
                       optionsList: [QuizOption(id: 162,optionId: "A", option: "Let", color: Color.yellow),
