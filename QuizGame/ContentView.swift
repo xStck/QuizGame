@@ -20,7 +20,7 @@ struct ContentView: View {
                     VStack{
                         ReusableText(text: "Test wiedzy o SwiftUi",size: 30)
                             .padding()
-                        ReusableText(text: gameManagerViewModel.model.quizModel.question,size: 25)
+                        ReusableText(text: gameManagerViewModel.model.quizQuestion.question,size: 25)
                             .lineLimit(10)
                             .frame(width: UIScreen.main.bounds.size.width - 20,
                                    height: 150,

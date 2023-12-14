@@ -14,7 +14,7 @@ struct OptionsGridView: View {
     var columns: [GridItem] = Array(repeating: GridItem(.fixed(170)), count: 1)
     var body: some View {
         LazyVGrid(columns: columns, spacing: 10) {
-            ForEach(gameManagerViewModel.model.quizModel.optionsList){quizOption in
+            ForEach(gameManagerViewModel.model.quizQuestion.optionsList){quizOption in
                 OptionCardView(quizOption: quizOption)
                     .onTapGesture
                 {
