@@ -14,7 +14,7 @@ struct OptionStatusImageView: View{
         Image(systemName: imageName)
             .resizable()
             .aspectRatio(contentMode: .fit)
-            .padding(EdgeInsets(top: 40, leading: 40, bottom: 40, trailing: 40))
+            .padding(EdgeInsets(top: 30, leading: 30, bottom: 30, trailing: 30))
             .foregroundColor(.white)
     }
 }

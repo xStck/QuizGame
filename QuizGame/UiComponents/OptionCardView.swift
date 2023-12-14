@@ -11,16 +11,15 @@ import SwiftUI
 struct OptionCardView: View{
     var quizOption: QuizOption
     var body: some View{
-        VStack{
-            if quizOption.isMatched && quizOption.isSelected{
-                OptionStatusImageView(imageName: "checkmark")
-            } else if !quizOption.isMatched && quizOption.isSelected {
-                OptionStatusImageView(imageName: "xmark")
-            } else {
-                OptionView(quizOption: quizOption)
+            HStack{
+                if quizOption.isMatched && quizOption.isSelected{
+                    OptionStatusImageView(imageName: "checkmark")
+                } else if !quizOption.isMatched && quizOption.isSelected {
+                    OptionStatusImageView(imageName: "xmark")
+                } else {
+                    OptionView(quizOption: quizOption)            }
             }
-        }
-        .frame(width: 150, height: 150)
+            .frame(width: UIScreen.main.bounds.width * 0.9, height:80)
             .background(setBackgroundColor())
             .cornerRadius(40)
     }

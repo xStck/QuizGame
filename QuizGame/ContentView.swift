@@ -20,11 +20,10 @@ struct ContentView: View {
                     VStack{
                         ReusableText(text: "Test wiedzy o SwiftUi",size: 30)
                             .padding()
-                        
                         ReusableText(text: gameManagerViewModel.model.quizModel.question,size: 25)
                             .lineLimit(10)
                             .frame(width: UIScreen.main.bounds.size.width - 20,
-                                   height: 60,
+                                   height: 150,
                                    alignment: .center)
                             .multilineTextAlignment(.center)
                         Spacer()
@@ -56,7 +55,6 @@ struct ContentView: View {
                 .stroke(lineWidth: 15)
                 .foregroundColor(.gray)
                 .opacity(0.3)
-            
             Circle()
                 .trim(from: 0.0, to: min((CGFloat(gameManagerViewModel.progress)/CGFloat(gameManagerViewModel.maxProgress))*100,1.0))
                 .stroke(LinearGradient(colors: [.orange, .red],
@@ -65,7 +63,6 @@ struct ContentView: View {
                         style: StrokeStyle(lineWidth: 20, lineCap: .round, lineJoin: .round))
                 .rotationEffect(Angle(degrees: 270))
                 .animation(Animation.linear(duration: Double(gameManagerViewModel.maxProgress)), value: gameManagerViewModel.progress)
-            
             ReusableText(text: String(gameManagerViewModel.progress), size: 30)
         }.frame(width: 150, height: 150)
     }

@@ -17,17 +17,14 @@ struct QuizCompletedView: View {
                 .font(.system(size: 60))
                 .padding()
             
-            ReusableText(text: gameManagerViewModel.model.quizWinningStatus ?
-                         "You passed the quiz" :
-                            "GAME OVER",
-                         size: 30)
+            ReusableText(text: gameManagerViewModel.model.quizWinningStatus ?"You passed the quiz" : "GAME OVER", size: 30)
                 .padding()
             
             ReusableText(text: gameManagerViewModel.model.quizWinningStatus
                          ? "Thank you for playing!"
                          : "Try again",
                          size: 30)
-                .padding()
+            .padding()
             
             Button {
                 gameManagerViewModel.restartGame()
