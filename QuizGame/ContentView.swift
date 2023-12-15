@@ -19,11 +19,16 @@ struct ContentView: View {
                 }else{
                     VStack{
                         ReusableText(text: "Test wiedzy o SwiftUi",size: 30)
-                        ReusableText(text: gameManagerViewModel.model.quizQuestion.question,size: 25)
+                        RoundedRectangle(cornerRadius: 15)
+                            .foregroundColor(.white)
                             .frame(width: UIScreen.main.bounds.size.width - 20,
                                    height: 150,
                                    alignment: .center)
-                            .multilineTextAlignment(.center)
+                            .overlay(
+                                ReusableText(text: gameManagerViewModel.model.quizQuestion.question, size: 25)
+                                    .multilineTextAlignment(.center)
+                            )
+                        Spacer()
                         CircleTimer(gameManagerViewModel: gameManagerViewModel)
                         Spacer()
                         OptionsGridView(gameManagerViewModel: gameManagerViewModel)

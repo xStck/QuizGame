@@ -14,48 +14,51 @@ class GameManagerViewModel: ObservableObject{
     var maxProgress = 5
     
     @Published var progress = 0
-    @Published var model = GameManagerViewModel.createGameModel(i: GameManagerViewModel.currentIndex)
+    @Published var model = GameManagerViewModel.createGameModel()
     
     static var quizQuestions: [QuizQuestion] = Utils.quizQuestionsDb.shuffled()
     
-    static func createGameModel(i: Int) -> QuizModel {
-        return QuizModel(quizQuestion: quizQuestions[i])
+    static func createGameModel() -> QuizModel {
+        return QuizModel()
     }
     
     init(){
-        GameManagerViewModel.quizQuestions = GameManagerViewModel.quizQuestions.shuffled()
         self.start()
     }
     
     func verifyAnswer(selectedOption: QuizOption){
-        let correctAnswer = model.verifyAnswer(selectedOption: selectedOption)
-        if correctAnswer {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
-                if GameManagerViewModel.currentIndex < 4{
-                    GameManagerViewModel.currentIndex = GameManagerViewModel.currentIndex+1
-                    self.model = GameManagerViewModel.createGameModel(i: GameManagerViewModel.currentIndex)
-                    self.start()
-
-                }else{
-                    self.model.winQuiz()
-                    self.resetTimer()
-                }
-            }
+        let result = model.verifyAnswer(selectedOption: selectedOption)
+        
+        switch result {
+            
+        case .correctAnswer:
+            self.start()
+            break
+            
+        case .badAnswer:
+            break
+            
+        case .quizWon:
+            self.resetTimer()
+            break
         }
     }
     
     func restartGame(){
-        GameManagerViewModel.quizQuestions = Utils.quizQuestionsDb.shuffled()
-        GameManagerViewModel.currentIndex = 0
-        model = GameManagerViewModel.createGameModel(i: GameManagerViewModel.currentIndex)
+        model.restartGame()
+        model = GameManagerViewModel.createGameModel()
         self.start()
+    }
+    
+    func score() -> Int{
+        return model.score
     }
     
     func start() {
         self.resetTimer()
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats:true, block: { time in
             if self.progress == self.maxProgress {
-                self.model.loseQuiz()
+                self.model.quizLost()
                 self.resetTimer()
             } else {
                 self.progress += 1

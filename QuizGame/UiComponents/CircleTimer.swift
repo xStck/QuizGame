@@ -26,8 +26,11 @@ struct CircleTimer: View {
                 .rotationEffect(Angle(degrees: 270))
                 .animation(Animation.linear(duration: Double(gameManagerViewModel.maxProgress)), value: gameManagerViewModel.progress)
                 .id(animationID)
-            ReusableText(text: String(gameManagerViewModel.progress), size: 30)
-        }.frame(width: 150, height: 150)
+            VStack{
+                ReusableText(text: String(gameManagerViewModel.progress), size: 40)
+                ReusableText(text: "Punkty: "+String(gameManagerViewModel.score()), size: 25)
+            }
+        }.frame(width: 170, height: 170)
             .onChange(of: gameManagerViewModel.progress) {
                 if gameManagerViewModel.progress == 0 {
                     animationID = UUID()

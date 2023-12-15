@@ -17,7 +17,8 @@ struct OptionView: View {
                 .frame(width: 50, height: 50)
                 .background(quizOption.color.opacity(0.8))
                 .foregroundColor(.white)
-            
+                .clipShape(RoundedRectangle(cornerRadius: 100)) 
+
             Spacer()
             
             Text(quizOption.option)
