@@ -292,7 +292,33 @@ struct Utils {
                          optionsList: [QuizOption(id: 166,optionId: "A", option: "Ulnt", color: Color.yellow),
                                        QuizOption(id: 167,optionId: "B", option: "Double", color: Color.red),
                                        QuizOption(id: 168,optionId: "C", option: "Char", color: Color.green),
-                                       QuizOption(id: 169,optionId: "D", option: "Optional", color: Color.purple)])
+                                       QuizOption(id: 169,optionId: "D", option: "Optional", color: Color.purple)]),
+            QuizQuestion(question: "Które z poniższych nie jest typem danych w Swift?",
+                          answer: "C", 
+                          optionsList: [QuizOption(id: 170, optionId: "A", option: "String", color: Color.blue),
+                                       QuizOption(id: 171, optionId: "B", option: "Int", color: Color.red),
+                                       QuizOption(id: 172, optionId: "C", option: "FloatArray", color: Color.green),
+                                       QuizOption(id: 173, optionId: "D", option: "Bool", color: Color.orange)]),
+
+            QuizQuestion(question: "Które ze słów kluczowych jest używane do tworzenia aliasów dla typów danych w Swift?",
+                             answer: "B",
+                             optionsList: [QuizOption(id: 174, optionId: "A", option: "Type", color: Color.blue),
+                                      QuizOption(id: 175, optionId: "B", option: "Typealias", color: Color.red),
+                                      QuizOption(id: 176, optionId: "C", option: "Alias", color: Color.green),
+                                      QuizOption(id: 177, optionId: "D", option: "Define", color: Color.orange)]),
+            QuizQuestion(question: "Które z poniższych deklaracji zmiennych w Swift jest mutowalne?",
+                         answer: "A",
+                         optionsList: [QuizOption(id: 175, optionId: "A", option: "var", color: Color.blue),
+                                      QuizOption(id: 176, optionId: "B", option: "let", color: Color.red),
+                                      QuizOption(id: 177, optionId: "C", option: "const", color: Color.green),
+                                      QuizOption(id: 178, optionId: "D", option: "immutable", color: Color.orange)]),4
+            QuizQuestion(question: "Które z poniższych jest właściwością typu Enum w Swift?",
+                         answer: "B",
+                         optionsList: [QuizOption(id: 37, optionId: "A", option: "Accessor", color: Color.blue),
+                                       QuizOption(id: 38, optionId: "B", option: "RawValue", color: Color.red),
+                                       QuizOption(id: 39, optionId: "C", option: "Computed", color: Color.green),
+                                       QuizOption(id: 40, optionId: "D", option: "Static", color: Color.orange)])
+
             
         ]
     }
