@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct OptionCardView: View{
-    var quizOption: QuizOption
+    let quizOption: QuizOption
     var body: some View{
             HStack{
                 if quizOption.isMatched && quizOption.isSelected{

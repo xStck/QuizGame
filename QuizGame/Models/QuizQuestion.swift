@@ -8,7 +8,6 @@
 import Foundation
 import SwiftUI
 
-
 struct QuizQuestion{
     var question: String
     var answer: String

@@ -10,8 +10,9 @@ import SwiftUI
 
 
 struct QuizModel {
-    private(set) var score: Int
+    private var currentIndex: Int
     private var quizQuestions: [QuizQuestion]
+    private(set) var score: Int
     private(set) var quizQuestion: QuizQuestion
     private(set) var quizCompleted: Bool  {
         didSet {
@@ -21,7 +22,6 @@ struct QuizModel {
         }
     }
     private(set) var quizWinningStatus: Bool
-    private var currentIndex: Int
     private(set) var amountOfQuestions = 6
     
     init(){
@@ -40,18 +40,18 @@ struct QuizModel {
                 self.quizQuestion.optionsList[index].isSelected = true
                 if(!self.quizQuestion.answered){
                     self.incrementScore()
+                    self.quizQuestion.answered = true
                 }
-                self.quizQuestion.answered = true
                 if self.currentIndex < amountOfQuestions - 1{
                     return .correctAnswer
                 }
                 return .quizFinished
                 
             }
-            if(self.score > 0 && !self.quizQuestion.answered){
+            if(!self.quizQuestion.answered){
                 self.decrementScore()
+                self.quizQuestion.answered = true
             }
-            self.quizQuestion.answered = true
             self.quizQuestion.optionsList[index].isMatched = false
             self.quizQuestion.optionsList[index].isSelected = true
             return .badAnswer
@@ -59,26 +59,23 @@ struct QuizModel {
         return .badAnswer
     }
     
-    mutating func nextQuestion(){
-        self.currentIndex += 1
-        quizQuestion = self.quizQuestions[currentIndex]
+    mutating func decrementScore(){
+        if(self.score > 0){
+            self.score -= 1
+        }
     }
     
     mutating func incrementScore(){
         self.score += 1
     }
     
-    mutating func decrementScore(){
-        self.score -= 1
+    mutating func nextQuestion(){
+        self.currentIndex += 1
+        quizQuestion = self.quizQuestions[currentIndex]
     }
     
     mutating func quizFinished(){
         self.quizCompleted = true
-    }
-    
-    mutating func quizLost(){
-        self.quizCompleted = true
-        self.quizWinningStatus = false
     }
     
     mutating func restartGame(){

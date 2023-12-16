@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct OptionStatusImageView: View{
-    var imageName: String
+    let imageName: String
     var body: some View{
         Image(systemName: imageName)
             .resizable()

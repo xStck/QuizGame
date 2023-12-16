@@ -13,17 +13,27 @@ class GameManagerViewModel: ObservableObject{
     var timer = Timer()
     var maxProgress = 5
     
-    @Published var progress = 0
+    @Published var progress: Int
     @Published var model = GameManagerViewModel.createGameModel()
     @Published var timerStopped = false
+    @Published var gameStatus: GameScreen
+    @Published var profile: Profile
     
-    static var quizQuestions: [QuizQuestion] = Utils.quizQuestionsDb.shuffled()
-    
+    var scoresArray: [Score]
+        
     static func createGameModel() -> QuizModel {
         return QuizModel()
     }
     
     init(){
+        self.progress = 0
+        self.gameStatus = GameScreen.start;
+        self.profile = Profile(userName: "Użytkownik 1", profileImage: "profile1")
+        scoresArray = []
+    }
+    
+    func startGame(){
+        self.gameStatus = GameScreen.playing
         self.startTimer()
     }
     
@@ -46,15 +56,24 @@ class GameManagerViewModel: ObservableObject{
         case .quizFinished:
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 self.model.quizFinished()
+                self.resetTimer()
+                self.gameStatus = GameScreen.end
             }
-            self.resetTimer()
+            self.saveScore()
             break
         }
     }
     
+    func saveScore(){
+        scoresArray.append(Score(id: UUID(), score: "\(round(Double(self.score) / Double(self.amountOfQuestions) * 100))%", profile: self.profile))
+    }
+    
+    
     func restartGame(){
         model.restartGame()
         model = GameManagerViewModel.createGameModel()
+        gameStatus = .start
+        self.profile = Profile(userName: "Użytkownik 1", profileImage: "profile1")
         self.startTimer()
     }
     
@@ -75,6 +94,7 @@ class GameManagerViewModel: ObservableObject{
             if self.progress == self.maxProgress {
                 self.model.questionAnswered()
                 self.disableTimer()
+                self.model.decrementScore()
             } else {
                 self.progress += 1
             }
@@ -89,5 +109,20 @@ class GameManagerViewModel: ObservableObject{
     func disableTimer(){
         timer.invalidate()
         self.timerStopped = true
+    }
+    
+    func updateUserName(name: String) {
+        self.profile.userName = name
+    }
+    
+    
+    func updateProfileImage(profileImage: String){
+        self.profile.profileImage = profileImage
+    }
+    
+    enum GameScreen {
+        case start
+        case playing
+        case end
     }
 }

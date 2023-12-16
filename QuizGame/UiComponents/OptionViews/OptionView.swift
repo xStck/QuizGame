@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct OptionView: View {
-    var quizOption: QuizOption
+    let quizOption: QuizOption
     var body: some View {
         HStack {
             Text(quizOption.optionId)

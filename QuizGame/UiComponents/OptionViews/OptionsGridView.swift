@@ -10,8 +10,8 @@ import SwiftUI
 
 
 struct OptionsGridView: View {
-    var gameManagerViewModel: GameManagerViewModel
-    var columns: [GridItem] = Array(repeating: GridItem(.fixed(170)), count: 1)
+    @ObservedObject var gameManagerViewModel: GameManagerViewModel
+    let columns: [GridItem] = Array(repeating: GridItem(.fixed(170)), count: 1)
     var body: some View {
         LazyVGrid(columns: columns, spacing: 10) {
             ForEach(gameManagerViewModel.model.quizQuestion.optionsList){quizOption in

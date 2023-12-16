@@ -8,15 +8,15 @@
 import SwiftUI
 
 struct ReusableText: View {
-    var text: String
-    var size: CGFloat
+    let text: String
+    let size: CGFloat
     var body: some View {
         Text(text)
             .font(.system(size: size,
                           weight: .bold,
                           design: .rounded))
             .foregroundColor(.black)
-            .shadow(color: .blue,
+            .shadow(color: .gray,
                     radius: 2, x: 0, y: 3)
     }
 }

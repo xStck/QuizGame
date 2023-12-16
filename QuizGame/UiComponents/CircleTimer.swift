@@ -37,7 +37,7 @@ struct CircleTimer: View {
                             style: StrokeStyle(lineWidth: 20, lineCap: .round, lineJoin: .round))
                     .rotationEffect(Angle(degrees: 270))
             }
-                
+            
             VStack{
                 ReusableText(text: String(gameManagerViewModel.progress), size: 40)
                 ReusableText(text: "Punkty: "+String(gameManagerViewModel.score), size: 25)
