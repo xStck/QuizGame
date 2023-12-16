@@ -22,5 +22,5 @@ struct ReusableText: View {
 }
 
 #Preview {
-    ReusableText(text: "Test wiedzy o swiftUI", size: 30)
+    ReusableText(text: "Test wiedzy o SwiftUI", size: 30)
 }

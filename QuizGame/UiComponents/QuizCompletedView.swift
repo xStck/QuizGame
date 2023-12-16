@@ -17,13 +17,10 @@ struct QuizCompletedView: View {
                 .font(.system(size: 60))
                 .padding()
             
-            ReusableText(text: gameManagerViewModel.model.quizWinningStatus ?"You passed the quiz" : "GAME OVER", size: 30)
+            ReusableText(text: gameManagerViewModel.model.quizWinningStatus ? "Zdano quiz" : "Nie zdano quizu", size: 30)
                 .padding()
             
-            ReusableText(text: gameManagerViewModel.model.quizWinningStatus
-                         ? "Thank you for playing!"
-                         : "Try again",
-                         size: 30)
+            ReusableText(text: "Uzyskany wynik: \(round((Double(gameManagerViewModel.model.score)/Double(gameManagerViewModel.model.amountOfQuestions) * 100)))%", size: 30)
             .padding()
             
             Button {
@@ -35,7 +32,7 @@ struct QuizCompletedView: View {
                         .font(.system(size: 24))
                         .padding()
                     
-                    Text("Play Again")
+                    Text("Zagraj ponownie")
                         .foregroundColor(.white)
                         .font(.system(size: 24, weight: .bold, design: .rounded))
                 }

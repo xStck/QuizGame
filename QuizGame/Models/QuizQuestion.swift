@@ -13,4 +13,5 @@ struct QuizQuestion{
     var question: String
     var answer: String
     var optionsList: [QuizOption]
+    var answered: Bool = false
 }

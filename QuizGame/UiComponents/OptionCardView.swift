@@ -17,7 +17,8 @@ struct OptionCardView: View{
                 } else if !quizOption.isMatched && quizOption.isSelected {
                     OptionStatusImageView(imageName: "xmark")
                 } else {
-                    OptionView(quizOption: quizOption)            }
+                    OptionView(quizOption: quizOption)
+                }
             }
             .frame(width: UIScreen.main.bounds.width * 0.9, height:80)
             .background(setBackgroundColor())

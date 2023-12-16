@@ -13,52 +13,67 @@ struct QuizModel {
     private(set) var score: Int
     private var quizQuestions: [QuizQuestion]
     private(set) var quizQuestion: QuizQuestion
-    private(set) var quizCompleted: Bool = false
-    private(set) var quizWinningStatus: Bool = false
-    private(set) var currentIndex: Int
-    private var amountOfQuestions = 5
+    private(set) var quizCompleted: Bool  {
+        didSet {
+            if((Double(self.score) / Double(self.amountOfQuestions) * 100) > 51){
+                quizWinningStatus = true
+            }
+        }
+    }
+    private(set) var quizWinningStatus: Bool
+    private var currentIndex: Int
+    private(set) var amountOfQuestions = 6
     
     init(){
         self.score = 0
         self.currentIndex = 0
-        self.quizQuestions = Array(Utils.quizQuestionsDb.shuffled().prefix(5))
+        self.quizQuestions = Array(Utils.quizQuestionsDb.shuffled().prefix(amountOfQuestions))
         self.quizQuestion = quizQuestions[currentIndex]
-        self.amountOfQuestions -= 1
+        self.quizCompleted = false
+        self.quizWinningStatus = false
     }
     
     mutating func verifyAnswer(selectedOption: QuizOption) -> QuizResult{
-        for index in self.quizQuestion.optionsList.indices{
-            self.quizQuestion.optionsList[index].isMatched = false
-            self.quizQuestion.optionsList[index].isSelected = false
-        }
-        
         if let index = quizQuestion.optionsList.firstIndex(where: {$0.optionId == selectedOption.optionId}){
             if selectedOption.optionId == quizQuestion.answer {
                 self.quizQuestion.optionsList[index].isMatched = true
                 self.quizQuestion.optionsList[index].isSelected = true
-                if self.currentIndex < amountOfQuestions{
-                    self.currentIndex += 1
-                    quizQuestion = self.quizQuestions[currentIndex]
-                    self.score += 1
-                    return .correctAnswer
-                    
-                }else{
-                    self.quizWon()
-                    return .quizWon
+                if(!self.quizQuestion.answered){
+                    self.incrementScore()
                 }
+                self.quizQuestion.answered = true
+                if self.currentIndex < amountOfQuestions - 1{
+                    return .correctAnswer
+                }
+                return .quizFinished
                 
             }
-            self.score -= 1
+            if(self.score > 0 && !self.quizQuestion.answered){
+                self.decrementScore()
+            }
+            self.quizQuestion.answered = true
             self.quizQuestion.optionsList[index].isMatched = false
             self.quizQuestion.optionsList[index].isSelected = true
             return .badAnswer
         }
-        return .quizWon
+        return .badAnswer
     }
     
-    mutating func quizWon(){
+    mutating func nextQuestion(){
+        self.currentIndex += 1
+        quizQuestion = self.quizQuestions[currentIndex]
+    }
+    
+    mutating func incrementScore(){
+        self.score += 1
+    }
+    
+    mutating func decrementScore(){
+        self.score -= 1
+    }
+    
+    mutating func quizFinished(){
         self.quizCompleted = true
-        self.quizWinningStatus = true
     }
     
     mutating func quizLost(){
@@ -71,10 +86,14 @@ struct QuizModel {
         self.currentIndex = 0
     }
     
+    mutating func questionAnswered(){
+        self.quizQuestion.answered = true
+    }
+    
     enum QuizResult {
         case correctAnswer
         case badAnswer
-        case quizWon
+        case quizFinished
     }
 }
 

@@ -15,6 +15,7 @@ class GameManagerViewModel: ObservableObject{
     
     @Published var progress = 0
     @Published var model = GameManagerViewModel.createGameModel()
+    @Published var timerStopped = false
     
     static var quizQuestions: [QuizQuestion] = Utils.quizQuestionsDb.shuffled()
     
@@ -23,7 +24,7 @@ class GameManagerViewModel: ObservableObject{
     }
     
     init(){
-        self.start()
+        self.startTimer()
     }
     
     func verifyAnswer(selectedOption: QuizOption){
@@ -32,13 +33,20 @@ class GameManagerViewModel: ObservableObject{
         switch result {
             
         case .correctAnswer:
-            self.start()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self.model.nextQuestion()
+                self.startTimer()
+            }
             break
             
         case .badAnswer:
+            self.disableTimer()
             break
             
-        case .quizWon:
+        case .quizFinished:
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self.model.quizFinished()
+            }
             self.resetTimer()
             break
         }
@@ -47,19 +55,26 @@ class GameManagerViewModel: ObservableObject{
     func restartGame(){
         model.restartGame()
         model = GameManagerViewModel.createGameModel()
-        self.start()
+        self.startTimer()
     }
     
-    func score() -> Int{
-        return model.score
+    var score: Int{
+        model.score
     }
     
-    func start() {
+    var amountOfQuestions: Int {
+        model.amountOfQuestions
+    }
+    
+    func startTimer() {
         self.resetTimer()
+        if(self.timerStopped){
+            self.timerStopped = false
+        }
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats:true, block: { time in
             if self.progress == self.maxProgress {
-                self.model.quizLost()
-                self.resetTimer()
+                self.model.questionAnswered()
+                self.disableTimer()
             } else {
                 self.progress += 1
             }
@@ -69,5 +84,10 @@ class GameManagerViewModel: ObservableObject{
     func resetTimer () {
         timer.invalidate()
         self.progress = 0
+    }
+    
+    func disableTimer(){
+        timer.invalidate()
+        self.timerStopped = true
     }
 }
