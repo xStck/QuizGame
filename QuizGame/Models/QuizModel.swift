@@ -79,7 +79,7 @@ struct QuizModel {
     }
     
     mutating func restartGame(){
-        self.quizQuestions = Array(Utils.quizQuestionsDb.shuffled().prefix(5))
+        self.quizQuestions = Array(Utils.quizQuestionsDb.shuffled().prefix(amountOfQuestions))
         self.currentIndex = 0
     }
     

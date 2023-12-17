@@ -9,7 +9,6 @@ import Foundation
 import SwiftUI
 
 class GameManagerViewModel: ObservableObject{
-    static var currentIndex = 0
     var timer = Timer()
     var maxProgress = 5
     
@@ -74,7 +73,6 @@ class GameManagerViewModel: ObservableObject{
         model = GameManagerViewModel.createGameModel()
         gameStatus = .start
         self.profile = Profile(userName: "Użytkownik 1", profileImage: "profile1")
-        self.startTimer()
     }
     
     var score: Int{

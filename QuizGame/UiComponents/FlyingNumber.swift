@@ -13,7 +13,7 @@ struct FlyingNumber: View {
         if number != 0{
             Text(number, format: .number.sign(strategy: .always()))
                 .font(.largeTitle)
-                .foregroundColor(number < 0 ? .red : .blue)
+                .foregroundColor(number < 0 ? .red : .green)
                 .shadow(color: .black, radius: 2, x: 1.5, y: 1.5)
                 .offset(x: 0, y: CGFloat(offset))
                 .opacity(offset != 0 ? 0 : 1)
