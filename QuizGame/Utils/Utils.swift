@@ -37,22 +37,22 @@ struct Utils {
 //                question: "Które z poniższych to frameworki do tworzenia interfejsów użytkownika w języku Swift?",
 //                answer: "B",
 //                optionsList: [
-//                    QuizOption(id: 5, optionId: "A", option: "UIKit", color: Color.blue),
+//                    QuizOption(id: 5, optionId: "A", option: "UXKit", color: Color.blue),
 //                    QuizOption(id: 6, optionId: "B", option: "SwiftUI", color: Color.red),
-//                    QuizOption(id: 7, optionId: "C", option: "SpriteKit", color: Color.green),
+//                    QuizOption(id: 7, optionId: "C", option: "Jetpack Compose", color: Color.green),
 //                    QuizOption(id: 8, optionId: "D", option: "Core Data", color: Color.orange)
 //                ]),
-//            QuizQuestion(question: "Który operator używamy do tworzenia zakresu w Swift?", answer: "C", optionsList: [
-//                QuizOption(id: 9, optionId: "A", option: "..<", color: Color.blue),
+//            QuizQuestion(question: "Który operator używamy do tworzenia zakresu w Swift?", answer: "B", optionsList: [
+//                QuizOption(id: 9, optionId: "A", option: "---", color: Color.blue),
 //                QuizOption(id: 10, optionId: "B", option: "...", color: Color.red),
 //                QuizOption(id: 11, optionId: "C", option: "<>", color: Color.green),
 //                QuizOption(id: 12, optionId: "D", option: "===", color: Color.orange)
 //            ]),
-//            QuizQuestion(question: "Które z poniższych są typami kolekcji w Swift?", answer: "D", optionsList: [
+//            QuizQuestion(question: "Które z poniższych nie są typami kolekcji w Swift?", answer: "D", optionsList: [
 //                QuizOption(id: 13, optionId: "A", option: "Dictionary", color: Color.blue),
 //                QuizOption(id: 14, optionId: "B", option: "Queue", color: Color.red),
 //                QuizOption(id: 15, optionId: "C", option: "Set", color: Color.green),
-//                QuizOption(id: 16, optionId: "D", option: "Stack", color: Color.orange)
+//                QuizOption(id: 16, optionId: "D", option: "Optional", color: Color.orange)
 //            ]),
 //            QuizQuestion(question: "Które słowo kluczowe służy do oznaczania opcjonalnych wartości w Swift?", answer: "A", optionsList: [
 //                QuizOption(id: 17, optionId: "A", option: "Optional", color: Color.blue),
@@ -141,7 +141,7 @@ struct Utils {
 //            QuizQuestion(question: "Co to jest VStack?", answer: "B", optionsList: [
 //                QuizOption(id: 25, optionId: "A", option: "Pionowy stack", color: Color.blue),
 //                QuizOption(id: 26, optionId: "B", option: "Pionowy układ elementów", color: Color.red),
-//                QuizOption(id: 27, optionId: "C", option: "Znak zodiaku", color: Color.green),
+//                QuizOption(id: 27, optionId: "C", option: "Steronik bazy danych", color: Color.green),
 //                QuizOption(id: 28, optionId: "D", option: "Kolekcja widoków", color: Color.orange)
 //            ]),
 //            QuizQuestion(question: "Do czego służy Spacer w SwiftUI?", answer: "C", optionsList: [
@@ -222,11 +222,11 @@ struct Utils {
 //                QuizOption(id: 87, optionId: "C", option: "Funkcja do zarządzania kolorami", color: Color.green),
 //                QuizOption(id: 88, optionId: "D", option: "Atrybut do kontrolowania animacji", color: Color.orange)
 //            ]),
-//            QuizQuestion(question: "Co to jest GeometryReader w SwiftUI?", answer: "D", optionsList: [
-//                QuizOption(id: 93, optionId: "A", option: "Widok do renderowania grafiki 3D", color: Color.blue),
-//                QuizOption(id: 94, optionId: "B", option: "Kontener do przechowywania geometrii widoku", color: Color.red),
-//                QuizOption(id: 95, optionId: "C", option: "Specjalny widok do animacji", color: Color.green),
-//                QuizOption(id: 96, optionId: "D", option: "Odczytywanie informacji o geometrii widoku", color: Color.orange)
+//            QuizQuestion(question: "Które z poniższych nie jest typem danych dostępnym w języku Swift?", answer: "D", optionsList: [
+//                QuizOption(id: 93, optionId: "A", option: "Int", color: Color.blue),
+//                QuizOption(id: 94, optionId: "B", option: "Float", color: Color.red),
+//                QuizOption(id: 95, optionId: "C", option: "String", color: Color.green),
+//                QuizOption(id: 96, optionId: "D", option: "Bit", color: Color.orange)
 //            ]),
 //            QuizQuestion(question: "Co to jest ViewModifier w SwiftUI?", answer: "A", optionsList: [
 //                QuizOption(id: 97, optionId: "A", option: "Funkcja modyfikująca właściwości widoku", color: Color.blue),
@@ -264,12 +264,12 @@ struct Utils {
 //                QuizOption(id: 139, optionId: "C", option: "Funkcja do filtrowania danych", color: Color.green),
 //                QuizOption(id: 140, optionId: "D", option: "Flaga informująca o zmianach w żądanych danych", color: Color.orange)
 //            ]),
-//            QuizQuestion(question: "Dlaczego SwiftUI nie jest wybierany przez wiele firm?",
-//                         answer: "D",
-//                         optionsList: [QuizOption(id: 141, optionId: "A", option: "Jest niestabilny i ma wiele błędów", color: Color.yellow),
-//                                       QuizOption(id: 143,optionId: "B", option: "Nie obsługuje starszych wersji systemu iOS.", color: Color.red),
-//                                       QuizOption(id: 144,optionId: "C", option: "Funkcjonalność jest ograniczona w porównaniu do UIKit", color: Color.green),
-//                                       QuizOption(id: 145,optionId: "D", option: "Wszystkie z powyższych", color: Color.purple)]),
+//            QuizQuestion(question: "Które z poniższych słów kluczowych oznacza, że zmienna może być modyfikowana po zainicjowaniu?",
+//                         answer: "C",
+//                         optionsList: [QuizOption(id: 141, optionId: "A", option: "let", color: Color.yellow),
+//                                       QuizOption(id: 143,optionId: "B", option: "constant", color: Color.red),
+//                                       QuizOption(id: 144,optionId: "C", option: "var", color: Color.green),
+//                                       QuizOption(id: 145,optionId: "D", option: "immutable", color: Color.purple)]),
 //            
 //            
 //            
@@ -314,10 +314,10 @@ struct Utils {
 //                                      QuizOption(id: 178, optionId: "D", option: "immutable", color: Color.orange)]),4
 //            QuizQuestion(question: "Które z poniższych jest właściwością typu Enum w Swift?",
 //                         answer: "B",
-//                         optionsList: [QuizOption(id: 37, optionId: "A", option: "Accessor", color: Color.blue),
-//                                       QuizOption(id: 38, optionId: "B", option: "RawValue", color: Color.red),
-//                                       QuizOption(id: 39, optionId: "C", option: "Computed", color: Color.green),
-//                                       QuizOption(id: 40, optionId: "D", option: "Static", color: Color.orange)])
+//                         optionsList: [QuizOption(id: 179, optionId: "A", option: "Accessor", color: Color.blue),
+//                                       QuizOption(id: 180, optionId: "B", option: "RawValue", color: Color.red),
+//                                       QuizOption(id: 181, optionId: "C", option: "Computed", color: Color.green),
+//                                       QuizOption(id: 182, optionId: "D", option: "Static", color: Color.orange)])
 //
 //            
 //        ]
@@ -339,22 +339,22 @@ struct Utils {
                 question: "Które z poniższych to frameworki do tworzenia interfejsów użytkownika w języku Swift?",
                 answer: "A",
                 optionsList: [
-                    QuizOption(id: 5, optionId: "A", option: "UIKit", color: Color.blue),
+                    QuizOption(id: 5, optionId: "A", option: "UXKit", color: Color.blue),
                     QuizOption(id: 6, optionId: "B", option: "SwiftUI", color: Color.red),
-                    QuizOption(id: 7, optionId: "C", option: "SpriteKit", color: Color.green),
+                    QuizOption(id: 7, optionId: "C", option: "Jetpack compose", color: Color.green),
                     QuizOption(id: 8, optionId: "D", option: "Core Data", color: Color.orange)
                 ]),
-            QuizQuestion(question: "Który operator używamy do tworzenia zakresu w Swift?", answer: "A", optionsList: [
-                QuizOption(id: 9, optionId: "A", option: "..<", color: Color.blue),
+            QuizQuestion(question: "Który operator używamy do tworzenia zakresu w Swift?", answer: "B", optionsList: [
+                QuizOption(id: 9, optionId: "A", option: "---", color: Color.blue),
                 QuizOption(id: 10, optionId: "B", option: "...", color: Color.red),
                 QuizOption(id: 11, optionId: "C", option: "<>", color: Color.green),
                 QuizOption(id: 12, optionId: "D", option: "===", color: Color.orange)
             ]),
-            QuizQuestion(question: "Które z poniższych są typami kolekcji w Swift?", answer: "A", optionsList: [
+            QuizQuestion(question: "Które z poniższych nie jest typem kolekcji w Swift?", answer: "D", optionsList: [
                 QuizOption(id: 13, optionId: "A", option: "Dictionary", color: Color.blue),
                 QuizOption(id: 14, optionId: "B", option: "Queue", color: Color.red),
                 QuizOption(id: 15, optionId: "C", option: "Set", color: Color.green),
-                QuizOption(id: 16, optionId: "D", option: "Stack", color: Color.orange)
+                QuizOption(id: 16, optionId: "D", option: "VStack", color: Color.orange)
             ]),
             QuizQuestion(question: "Które słowo kluczowe służy do oznaczania opcjonalnych wartości w Swift?", answer: "A", optionsList: [
                 QuizOption(id: 17, optionId: "A", option: "Optional", color: Color.blue),
