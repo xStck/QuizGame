@@ -19,7 +19,7 @@ struct CircleTimer: View {
                 .opacity(0.3)
             if(!gameManagerViewModel.timerStopped){
                 Circle()
-                    .trim(from: 0.0, to: min((CGFloat(gameManagerViewModel.progress)/CGFloat(gameManagerViewModel.maxProgress))*100,1.0))
+                    .trim(from: 0.0, to: min((CGFloat(Double(gameManagerViewModel.progress))/CGFloat(Double(gameManagerViewModel.maxProgress)))*100,1.0))
                     .stroke(LinearGradient(colors:[.orange, .red],
                                            startPoint: .topLeading,
                                            endPoint: .bottomTrailing),
@@ -30,7 +30,6 @@ struct CircleTimer: View {
                     .id(animationID)
             }else{
                 Circle()
-                    .trim(from: 0.0, to: (CGFloat(gameManagerViewModel.progress)/CGFloat(gameManagerViewModel.maxProgress)))
                     .stroke(LinearGradient(colors: [.gray] ,
                                            startPoint: .topLeading,
                                            endPoint: .bottomTrailing),

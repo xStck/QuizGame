@@ -22,7 +22,7 @@ struct QuizModel {
         }
     }
     private(set) var quizWinningStatus: Bool
-    private(set) var amountOfQuestions = 6
+    private(set) var amountOfQuestions = 5
     
     init(){
         self.score = 0

@@ -11,7 +11,7 @@ struct GameScreen: View {
     @ObservedObject var gameManagerViewModel: GameManagerViewModel
     var body: some View {
         VStack{
-            ReusableText(text: "Test wiedzy o SwiftUi",size: 30)
+            ReusableText(text: "Test wiedzy o Swift",size: 30)
             RoundedRectangle(cornerRadius: 15)
                 .foregroundColor(.white)
                 .frame(width: UIScreen.main.bounds.size.width - 20,

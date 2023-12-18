@@ -14,7 +14,7 @@ struct StartScreen: View {
     
     var body: some View {
         VStack {
-            ReusableText(text: "Test wiedzy o SwiftUi",size: 30)
+            ReusableText(text: "Test wiedzy o Swift",size: 30)
             Spacer()
             
             Image(gameManagerViewModel.profile.profileImage)

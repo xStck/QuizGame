@@ -29,6 +29,7 @@ class GameManagerViewModel: ObservableObject{
         self.gameStatus = GameScreen.start;
         self.profile = Profile(userName: "Użytkownik 1", profileImage: "profile1")
         scoresArray = []
+        self.maxProgress -= 1
     }
     
     func startGame(){
@@ -89,13 +90,17 @@ class GameManagerViewModel: ObservableObject{
             self.timerStopped = false
         }
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats:true, block: { time in
-            if self.progress == self.maxProgress {
-                self.model.questionAnswered()
+            if self.progress == self.maxProgress{
                 self.disableTimer()
-                self.model.decrementScore()
-            } else {
+                self.progress += 1
+                if !self.model.quizQuestion.answered {
+                    self.model.decrementScore()
+                }
+                self.model.questionAnswered()
+            }else {
                 self.progress += 1
             }
+            print(self.progress)
         })
     }
     
@@ -105,10 +110,10 @@ class GameManagerViewModel: ObservableObject{
     }
     
     func disableTimer(){
-        timer.invalidate()
         self.timerStopped = true
+        timer.invalidate()
     }
-    
+
     func updateUserName(name: String) {
         self.profile.userName = name
     }
