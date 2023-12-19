@@ -34,10 +34,10 @@ struct Utils {
                     QuizOption(id: 4, optionId: "D", option: "Biblioteka matematyczna", color: Color.orange)
                 ]),
             QuizQuestion(
-                question: "Które z poniższych to frameworki do tworzenia interfejsów użytkownika w języku Swift?",
+                question: "Który z poniższych to framework do tworzenia interfejsów użytkownika w języku Swift?",
                 answer: "B",
                 optionsList: [
-                    QuizOption(id: 5, optionId: "A", option: "UXKit", color: Color.blue),
+                    QuizOption(id: 5, optionId: "A", option: "Żaden z podanych", color: Color.blue),
                     QuizOption(id: 6, optionId: "B", option: "SwiftUI", color: Color.red),
                     QuizOption(id: 7, optionId: "C", option: "Jetpack Compose", color: Color.green),
                     QuizOption(id: 8, optionId: "D", option: "Core Data", color: Color.orange)
