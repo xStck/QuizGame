@@ -100,7 +100,6 @@ class GameManagerViewModel: ObservableObject{
             }else {
                 self.progress += 1
             }
-            print(self.progress)
         })
     }
     
